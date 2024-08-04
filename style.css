@@ -1,0 +1,52 @@
+@import url("reset.css");
+
+:root {
+  /* Colors */
+  --cyan-600: hsl(192, 37%, 48%);
+  --cyan-300: hsl(192, 90%, 77%);
+  --purple-600: hsl(268, 34%, 53%);
+  --purple-300: hsl(268, 100%, 86%);
+  --slate-900: hsl(240, 21%, 20%);
+  --slate-600: hsl(240, 10%, 57%);
+  --slate-300: hsl(240, 18%, 85%);
+  --white: hsl(0, 0%, 98%);
+
+  /* Spacing Sizes */
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-900: 72px;
+  --spacing-1000: 80px;
+  --spacing-1400: 112px;
+}
+
+html {
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  --font-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+    Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--slate-900);
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 110%;
+}
+
+.only-desktop-img {
+  display: none;
+
+  @media (min-width: 48rem) {
+    display: block;
+  }
+}
