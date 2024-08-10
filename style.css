@@ -3,7 +3,7 @@
 :root {
   /* Colors */
   --cyan-600: hsl(192, 37%, 48%);
-  --cyan-600-footer: hsla(192, 37%, 48%, 0.6);
+  --cyan-600-footer: hsla(192, 37%, 48%, 0.9);
   --cyan-300: hsl(192, 90%, 77%);
   --purple-600: hsl(268, 34%, 53%);
   --purple-300: hsl(268, 100%, 86%);
@@ -47,15 +47,6 @@ body {
 
 /* Utilities */
 
-.flex-desktop-row-mobile-stack {
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 48rem) {
-    flex-direction: row;
-  }
-}
-
 .only-desktop {
   display: none;
 
@@ -73,11 +64,38 @@ button {
   font-size: 1rem;
   font-weight: 900;
   border: none;
+  min-width: fit-content;
 }
 
 p {
   font-size: calc(18 * 1rem / 16);
   font-weight: 500;
+}
+
+.chapter-marker {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  top: calc(var(--spacing-700) / 2);
+
+  .vertical-line {
+    border: 1px solid var(--slate-300);
+    width: 1px;
+    height: var(--spacing-1000);
+  }
+
+  .circle {
+    border: 1px solid var(--slate-300);
+    border-radius: 50%;
+    width: var(--spacing-700);
+    height: var(--spacing-700);
+    display: grid;
+    place-items: center;
+    background: var(--white);
+  }
 }
 
 /* Layout */
@@ -93,9 +111,14 @@ nav {
   justify-content: space-between;
   padding-block-start: var(--spacing-800);
   padding-block-end: var(--spacing-400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-900) 0;
 
-  @media (min-width: 30rem) {
+  @media (min-width: 48rem) {
     padding-block-end: var(--spacing-800);
+    flex-direction: row;
+    gap: 0 var(--spacing-900);
   }
 
   h1 {
@@ -136,6 +159,12 @@ nav {
     gap: var(--spacing-200);
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 30rem) {
+      flex-direction: row;
+    }
 
     button {
       flex: 0 0 auto;
@@ -151,7 +180,8 @@ nav {
 }
 
 .main-content {
-  padding: var(--spacing-400) var(--spacing-200);
+  padding: var(--spacing-400) var(--spacing-400);
+  padding-block-end: var(--spacing-800);
   max-width: 70rem;
   margin: 0 auto;
 
@@ -194,6 +224,10 @@ nav {
     color: var(--slate-600);
     padding-block-end: var(--spacing-200);
   }
+
+  p {
+    color: var(--slate-600);
+  }
 }
 
 footer {
@@ -215,6 +249,9 @@ footer {
   }
 
   .footer-main {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-300);
     max-width: 70rem;
     margin: 0 auto;
     align-items: center;
@@ -226,6 +263,14 @@ footer {
 
     button {
       background-color: var(--purple-600);
+    }
+
+    @media (min-width: 48rem) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0 var(--spacing-400);
+      text-align: left;
     }
   }
 }
